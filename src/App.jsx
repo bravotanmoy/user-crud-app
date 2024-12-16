@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import MyModal from "./components/MyModal";
 import './App.css'
 
 function App() {
@@ -135,6 +136,8 @@ function App() {
             </div>
         </div>
     </div>
+
+    <MyModal />
  
     </>
   )
