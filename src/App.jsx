@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-
+ <MyModal />
     <div className="container">
         <div className="table-wrapper">
             <div className="table-title">
@@ -137,7 +137,7 @@ function App() {
         </div>
     </div>
 
-    <MyModal />
+   
  
     </>
   )

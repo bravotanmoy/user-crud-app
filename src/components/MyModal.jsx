@@ -8,12 +8,12 @@ function MyModal() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  alert(23408);
+  console.log(23408);
 
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+        Open modal
       </Button>
 
       <Modal show={show} onHide={handleClose}>
