@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function MyModal() {
+
+function MyModal(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -13,7 +14,7 @@ function MyModal() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Open modal
+        {props.label}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
