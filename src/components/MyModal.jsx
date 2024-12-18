@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function MyModal(props) {
@@ -9,17 +11,17 @@ function MyModal(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(23408);
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        {props.label}
+      <Button variant={props.config.variant} onClick={handleShow}>
+      <i className="bi bi-alarm" style={{ fontSize: "12px", color: "#fff" }}></i>
+        {props.config.label}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title> {props.config.heading} </Modal.Title>
         </Modal.Header>
         <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
         <Modal.Footer>

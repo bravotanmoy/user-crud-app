@@ -3,10 +3,18 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import MyModal from "./components/MyModal";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css'
 
 function App() {
+
+let addUserBtnConfig = {
+    label: 'Add New Employee',
+    variant: 'success',
+    dataToggle: 'modal',
+    heading: 'Add Employee',
+    materialIcons: `<i className="material-icons">&#xE147;</i>`
+}
 
   return (
     <>
@@ -19,7 +27,7 @@ function App() {
 						<h2>Manage <b>Employees</b></h2>
 					</div>
 					<div className="col-sm-6">
-                        <MyModal label="Add New Employee" />
+                        <MyModal config = {addUserBtnConfig}/>
 						<a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
 						<a href="#deleteEmployeeModal" className="btn btn-danger" data-toggle="modal"><i className="material-icons">&#xE15C;</i> <span>Delete</span></a>						
 					</div>
