@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,7 +24,23 @@ function MyModal(props) {
         <Modal.Header closeButton>
           <Modal.Title> {props.config.heading} </Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+
+            <Form.Group className="mb-3">
+                <Form.Label>Disabled input</Form.Label>
+                <Form.Control placeholder="Disabled input" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Disabled select menu</Form.Label>
+                <Form.Select>
+                  <option>Disabled select</option>
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Check type="checkbox" label="Can't check this" />
+            </Form.Group>
+
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
