@@ -9,12 +9,14 @@ import './App.css'
 function App() {
 
 let addUserBtnConfig = {
-    label: 'Add New Employee',
+    label: 'Add Employee',
     variant: 'success',
     dataToggle: 'modal',
     heading: 'Add Employee',
-    materialIcons: `<i className="material-icons">&#xE147;</i>`
+    bsIcon: 'bi bi-plus-circle'
 }
+
+
 
   return (
     <>
@@ -28,8 +30,10 @@ let addUserBtnConfig = {
 					</div>
 					<div className="col-sm-6">
                         <MyModal config = {addUserBtnConfig}/>
-						<a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-						<a href="#deleteEmployeeModal" className="btn btn-danger" data-toggle="modal"><i className="material-icons">&#xE15C;</i> <span>Delete</span></a>						
+						<a href="#deleteEmployeeModal" className="btn btn-danger" data-toggle="modal">
+                            <i className='bi bi-dash-circle'></i>
+                            <span> Delete</span>
+                        </a>						
 					</div>
                 </div>
             </div>

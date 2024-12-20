@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,11 +11,16 @@ function MyModal(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`The name you entered was: yuf`);
+  }
+
 
   return (
     <>
       <Button variant={props.config.variant} onClick={handleShow}>
-      <i className="bi bi-alarm" style={{ fontSize: "12px", color: "#fff" }}></i>
+      <i className={props.config.bsIcon} style={{ fontSize: "12px", color: "#fff" }}></i>
         {props.config.label}
       </Button>
 
@@ -26,28 +30,36 @@ function MyModal(props) {
         </Modal.Header>
         <Modal.Body>
 
-            <Form.Group className="mb-3">
-                <Form.Label>Disabled input</Form.Label>
-                <Form.Control placeholder="Disabled input" />
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Disabled select menu</Form.Label>
-                <Form.Select>
-                  <option>Disabled select</option>
-                </Form.Select>
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Check type="checkbox" label="Can't check this" />
-            </Form.Group>
+        <form id='modal-form' onSubmit={handleSubmit}>
+							
+						<div className="form-group">
+							<label>Name</label>
+							<input type="text" className="form-control" required/>
+						</div>
+						<div className="form-group">
+							<label>Email</label>
+							<input type="email" className="form-control" required/>
+						</div>
+						<div className="form-group">
+							<label>Phone</label>
+							<input type="text" className="form-control" required/>
+						</div>		
+            <div className="form-group">
+							<label>Comments</label>
+							<textarea className="form-control" required></textarea>
+						</div>			
+					
+				</form>
 
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          {/* <Button variant="primary" onClick={handleClose}>
             Save Changes
-          </Button>
+          </Button> */}
+          <input type='submit' form='modal-form' value='Save'/>
         </Modal.Footer>
       </Modal>
     </>
