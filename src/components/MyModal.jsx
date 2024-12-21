@@ -11,9 +11,23 @@ function MyModal(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
+
+  const [inputs, setInputs] = useState({});
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setInputs(values => ({...values, [name]: value}));
+  }
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`The name you entered was: yuf`);
+    
+    console.log(inputs);
+
   }
 
 
@@ -34,19 +48,19 @@ function MyModal(props) {
 							
 						<div className="form-group">
 							<label>Name</label>
-							<input type="text" className="form-control" required/>
+							<input type="text" name='name' className="form-control" onChange={handleChange} required/>
 						</div>
 						<div className="form-group">
 							<label>Email</label>
-							<input type="email" className="form-control" required/>
+							<input type="email" name='email' className="form-control" onChange={handleChange} required/>
 						</div>
 						<div className="form-group">
 							<label>Phone</label>
-							<input type="text" className="form-control" required/>
+							<input type="text" name='phone' className="form-control" onChange={handleChange} required/>
 						</div>		
             <div className="form-group">
 							<label>Comments</label>
-							<textarea className="form-control" required></textarea>
+							<textarea className="form-control" name='comment' onChange={handleChange} required></textarea>
 						</div>			
 					
 				</form>
